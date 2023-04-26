@@ -1,10 +1,10 @@
 # Linux_Tips
 Notes / Tips for me using Linux (Debian based Distros, I use Pop_os and Ubuntu)
 
--[Configure Raspberry Pi options](#configure-raspberry-pi-options)
--[Neofetch, system info](#neofetch)
--[Styling the Terminal](#styling-the-terminal)
--[Linux Server more security](#server-security)
+- [Configure Raspberry Pi options](#configure-raspberry-pi-options)
+- [Neofetch, system info](#neofetch)
+- [Styling the Terminal](#styling-the-terminal)
+- [Linux Server more security](#server-security)
 
 ## Configure Raspberry Pi Options
 
