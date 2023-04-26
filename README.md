@@ -75,5 +75,60 @@ sudo dpkg-reconfigure --priority=low unattended-upgrades
 
 ## ssh keys
 
+
+
 ```bash
 ```
+
+
+<details open>
+<summary>Screen commands</summary>
+<br>
+
+1. Create a new Screen
+
+```bash
+$ screen -S "name of the new screen"
+```
+
+2. Exit current screen
+
+```
+Control + a + d
+```
+
+3. Check for any screens that are running
+
+```bash
+$ screen -list
+```
+
+4. End a screen session by name
+
+```bash
+$ screen -XS "screen name"
+```
+
+ - or by the id which you get from the list command #3
+
+```bash
+$ screen -XS id
+```
+
+5. Re-attch to an open session by name or id
+
+```bash
+$ screen -r name
+```
+
+ - or 
+
+```bash
+$ screen -r id
+```
+
+</details>
+
+<details open>
+<summary> commands</summary>
+<br>
