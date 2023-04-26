@@ -75,10 +75,138 @@ sudo dpkg-reconfigure --priority=low unattended-upgrades
 
 ## ssh keys
 
+# Setting up SSH keys for login of Linux Servers
 
+For those of you whom like a video to follow along https://youtu.be/YS5Zh7KExvE "Learn Linux TV YouTube video"
+
+> Note: I am using Ubuntu / PopOS a Debian based Distro, and the GNOME Desktop
+
+## See if SSH is installed
+
+- See if we have ssh installed
+
+> Linux, and Mac based OS
 
 ```bash
+which ssh
 ```
+- should see a directory path, if so the ssh client is installed
+`/usr/bin/ssh`
+
+> Windows Based OS
+
+- usually people either use PUTTY or Windows Terminal
+
+[putty](https://www.putty.org/)
+
+
+## Generating a Key Pair
+
+- check if we have one already
+```bash
+ls -l ~/.ssh
+```
+
+> :warning: If you see keys / any files in here please back them up. the next few steps WILL overwrite... them if you use the default name and settings :warning:
+
+- we should see `total 0`
+
+    - if not backup these files, or skip creating them to use these
+
+We have some options on how to create a key.
+
+default, hit enter on all prompts... 
+> WILL overwrite if a key exists with the default name (id_rsa):
+```bash
+$ ssh-keygen
+
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/username/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/username/.ssh/id_rsa
+Your public key has been saved in /home/username/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:Oo95CARZs4cEyW7HDbLrZ4BZEBWPQ0utu2FcimDvtM0 username@computername
+The key's randomart image is:
++---[RSA 3072]----+
+|                 |
+|                 |
+|              .  |
+|     q   1 . ..o.|
+|    wdawdawdawda=|
+|   aa a a a    a |
+|    a   a a a a  |
+|   adawdaw awd a |
+|   .233443334. . |
++----[SHA256]-----+
+```
+
+We can also set things like the key type and key name !
+
+- (optional defaults to rsa) set key type: `-t "type of key"` options [-t dsa | ecdsa | ecdsa-sk | ed25519 | ed25519-sk | rsa]
+- (optional) set a comment: `-C "game server or company name"`
+- (optional) set a bit size `-b 4096`
+
+```bash
+ssh-keygen -t ed25519 -C "my minecraft server"
+```
+
+during this prompt we can change the keys name here
+```bash
+Enter file in which to save the key (/home/username/.ssh/id_rsa): /home/username/.ssh/company_id_ed25519
+```
+
+> If using for work or company related things please use a passphrase
+
+    - Then it will asks where we want to save the key, which we can just use the default by hitting enter
+    - Then it will ask for a passphrase: (reccommended)
+> :warning: if you entered one, you will not be able to get it back
+
+### If you already have a key pair to use then skip [here](https://gist.github.com/Coryf65/29c62fca81eb0a3f2d48df1d05839e46#now-we-can-copy-our-public-key-to-our-server)
+
+- You will get 2 :key: files created in the directory you chose
+
+    - Private Key :key:
+    `id_rsa`
+    - Public Key :key:
+    `id_rsa.pub`
+
+> :spiral_notepad: DO NOT SHARE your private key with anyone
+- you can see your Public Key as follows
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+
+## Now we can copy our Public Key to our Server
+
+1. Connect with SSH
+```bash
+ssh username@hostname
+```
+- example
+`ssh testuser@192.168.1.2`
+
+2. exit our ssh session
+
+3. Copy our key into our server
+    - we can copy the key using a simple commmand 
+    ```bash
+    ssh-copy-id username@ip/hostname
+    ```
+    - example `ssh-copy-id root@192.168.1.2`
+    
+    *we can copy a specific key using the following*
+    ```bash
+    ssh-copy-id -i ~/.ssh/mykey user@host
+    ```
+    - then we need to enter our password for the user on the server
+
+4. Now we can test by ssh-ing back in
+
+- We should be good for using our Key now.
+
+:partying_face: Congrats! we did it !
 
 
 <details open>
