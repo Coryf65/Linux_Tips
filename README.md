@@ -56,6 +56,54 @@ code .bashrc
 
 https://raw.githubusercontent.com/ChrisTitusTech/scripts/master/fancy-bash-promt.sh
 
+Other option is to use ohmyposh
+
+# Windows Terminal Oh-My-Posh Setup
+
+[What is Oh My Posh?](https://ohmyposh.dev/docs/)
+[What is Windows Terminal?](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701)
+
+## How to Setup Oh My Posh
+
+1. Follow along with Scott Hanselman
+
+[YouTube Video with Scott](https://youtu.be/lu__oGZVT98)
+
+## See Themes you can use
+
+```Powershell
+Get-PoshThemes
+```
+
+> Note: You may need to install a Powerline font to have icons display correctly.
+
+- I use Cascadia Code PL [here](https://github.com/microsoft/cascadia-code/releases)
+- I also use a Nerd Font for more fun things [here](https://www.nerdfonts.com/font-downloads)
+
+## Setting Default Theme
+
+- Open your ~/.bashrc file with nano ~/.bashrc or the text editor of your choice. This is a bash script that runs every time bash starts. Add the following (change the theme to the one you like):
+
+> Open Windows Terminal
+
+> Open VSCode with the Profile settings file
+
+```bash
+code $PROFILE
+ ```
+- Add the Default theme desired into the file like so...
+
+```Powershell
+# Adding default theme setup
+Set-PoshPrompt -Theme jandedobbeleer
+```
+
+- List out Themes
+
+```Powershell
+Get-PoshThemes C:\Users\Cory\AppData\Local\Programs\oh-my-posh\themes
+```
+
 ## Server Security
 
 Automatic updates, updates stable packages automatically.
