@@ -1,15 +1,18 @@
 # Linux_Tips
 Notes / Tips for me using Linux (Debian based Distros, I use Pop_os and Ubuntu)
 
+-[Configure Raspberry Pi options](#configure-raspberry-pi-options)
+-[]()
+-[]()
 
-## Rasberry Pi / Rasbian, Raspberry Pi OS
+## Configure Raspberry Pi Options
 
-1. Simple Set up wizard, examples Change Hostname
+1. Simple Set up wizard, examples Change Hostname on Rasberry Pi / Rasbian, Raspberry Pi OS
 
   ```BASH
   sudo raspi-config
   ```
-## Seeing cool ASCII Art in Terminal (any Debian Distro)
+ Seeing cool ASCII Art in Terminal (any Debian Distro)
 
 1. Install Neofetch
 
@@ -49,3 +52,6 @@ code .bashrc
 3. Copy and Paste from the changed bashrc file
 
 https://raw.githubusercontent.com/ChrisTitusTech/scripts/master/fancy-bash-promt.sh
+
+## Server Security
+
